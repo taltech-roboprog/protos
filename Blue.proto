@@ -1,0 +1,31 @@
+#VRML_SIM R2022b utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+
+PROTO Blue [
+  field SFColor colorOverride    0 0 0.9
+  field SFNode  textureTransform NULL
+  field SFFloat IBLStrength      1
+]
+{
+  PBRAppearance {
+    baseColor IS colorOverride
+    textureTransform TextureTransform {
+        scale 2 2
+    }
+    roughness 0.4
+    metalness 0
+    normalMap ImageTexture {
+      url [
+        "textures/grey/grey_normal.jpg"
+      ]
+    }
+    occlusionMap ImageTexture {
+      url [
+        "textures/grey/grey_occlusion.jpg"
+      ]
+    }
+    IBLStrength IS IBLStrength
+    textureTransform IS textureTransform
+  }
+}
