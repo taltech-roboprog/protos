@@ -47,7 +47,7 @@ PROTO Turtlebot4 [
         name "accelerometer"
       }
 
-    HingeJoint {
+    DEF LEFTWHEEL HingeJoint {
       jointParameters HingeJointParameters {
         axis 0 1 0
 	anchor 0 0.116500 0.03575
@@ -94,7 +94,7 @@ PROTO Turtlebot4 [
       }
     }
 
-    HingeJoint {
+    DEF RIGHTWHEEL HingeJoint {
       jointParameters HingeJointParameters {
         axis 0 1 0
 	anchor 0 -0.116500 0.03575
