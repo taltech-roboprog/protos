@@ -133,14 +133,7 @@ PROTO Turtlebot4 [
 
     BallJoint {
       jointParameters BallJointParameters {
-        axis 1 0 0
         anchor 0.125000 0.000000 0.012200
-      }
-      jointParameters2 BallJointParameters {
-        axis 0 1 0
-      }
-      jointParameters3 BallJointParameters {
-        axis 0 0 1
       }
       endPoint Solid {
         translation 0.125000 0.000000 0.012200
