@@ -46,176 +46,103 @@ PROTO Turtlebot4 [
       Accelerometer {
         name "accelerometer"
       }
-      Solid {
-        translation 0.000000 0.000000 0.039200
+
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0.000000 0.000000 1.000000
+      }
+      device [
+        RotationalMotor {
+          name "left_wheel_joint"
+          maxTorque 10000
+        }
+        PositionSensor {
+          name "left_wheel_joint_sensor"
+        }
+      ]
+      endPoint Solid {
         children [
-          DEF bumper_visual_visual CadShape {
-            url "meshes/irobot_create/bumper_visual.dae"
+          Shape {
+            appearance DEF black PBRAppearance {
+              baseColor 0.100000 0.100000 0.100000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry Cylinder {
+              radius 0.035750000000000004
+              height 0.015
+            }
           }
         ]
-        name "bump_front_center"
-        boundingObject DEF bumper_collision Mesh {
-          url "meshes/irobot_create/bumper_collision.dae"
+        name "left_wheel"
+        boundingObject Cylinder {
+          radius 0.035750000000000004
+          height 0.015
         }
         physics Physics {
           density -1
-          mass 0.100000
-          centerOfMass [ 0.080000 0.000000 0.020000 ]
+          mass 0.200000
+          centerOfMass [ 0.000000 0.000000 0.000000 ]
           inertiaMatrix [
-            1.348375e-03 2.521737e-04 1.544253e-03
-            4.543520e-08 1.443485e-06 -6.721000e-10
+            6.765313e-05 6.765313e-05 1.278063e-04
+            0.000000e+00 0.000000e+00 0.000000e+00
           ]
         }
       }
-      SliderJoint {
-        jointParameters JointParameters {
-          axis 0.000000 0.000000 -1.000000
-          dampingConstant 50.0
-          staticFriction 0.1
+    }
+
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0.000000 0.000000 1.000000
+            }
+            device [
+        RotationalMotor {
+          name "right_wheel_joint"
+          maxTorque 10000
         }
-        device [
-          LinearMotor {
-            name "wheel_drop_left_joint"
-            maxPosition 0.03
-            maxForce 10000
-          }
-          PositionSensor {
-            name "wheel_drop_left_joint_sensor"
+        PositionSensor {
+          name "right_wheel_joint_sensor"
+        }
+            ]
+            endPoint Solid {
+        children [
+          Shape {
+            appearance USE black
+            geometry Cylinder {
+              radius 0.035750000000000004
+              height 0.015
+            }
           }
         ]
-        endPoint Solid {
-          translation 0.000000 0.116500 0.040200
-          rotation -1.000000 0.000000 0.000000 1.570796
-          children [
-            HingeJoint {
-              jointParameters HingeJointParameters {
-                axis 0.000000 0.000000 1.000000
-              }
-              device [
-                RotationalMotor {
-                  name "left_wheel_joint"
-                  maxTorque 10000
-                }
-                PositionSensor {
-                  name "left_wheel_joint_sensor"
-                }
-              ]
-              endPoint Solid {
-                children [
-                  Shape {
-                    appearance DEF black PBRAppearance {
-                      baseColor 0.100000 0.100000 0.100000
-                      roughness 1.000000
-                      metalness 0
-                    }
-                    geometry Cylinder {
-                      radius 0.035750000000000004
-                      height 0.015
-                    }
-                  }
-                ]
-                name "left_wheel"
-                boundingObject Cylinder {
-                  radius 0.035750000000000004
-                  height 0.015
-                }
-                physics Physics {
-                  density -1
-                  mass 0.200000
-                  centerOfMass [ 0.000000 0.000000 0.000000 ]
-                  inertiaMatrix [
-                    6.765313e-05 6.765313e-05 1.278063e-04
-                    0.000000e+00 0.000000e+00 0.000000e+00
-                  ]
-                }
-              }
-            }
+        name "right_wheel"
+        boundingObject Cylinder {
+          radius 0.035750000000000004
+          height 0.015
+        }
+        physics Physics {
+          density -1
+          mass 0.200000
+          centerOfMass [ 0.000000 0.000000 0.000000 ]
+          inertiaMatrix [
+            6.765313e-05 6.765313e-05 1.278063e-04
+            0.000000e+00 0.000000e+00 0.000000e+00
           ]
-          name "wheel_drop_left"
-          physics Physics {
-            density -1
-            mass 0.050000
-            centerOfMass [ 0.000000 0.000000 0.000000 ]
-            inertiaMatrix [
-              2.083333e-05 2.083333e-05 2.083333e-05
-              0.000000e+00 0.000000e+00 0.000000e+00
-            ]
-          }
         }
       }
-      SliderJoint {
-        jointParameters JointParameters {
-          axis 0.000000 0.000000 -1.000000
-          dampingConstant 50.0
-          staticFriction 0.1
-        }
-        device [
-          LinearMotor {
-            name "wheel_drop_right_joint"
-            maxPosition 0.03
-            maxForce 10000
-          }
-          PositionSensor {
-            name "wheel_drop_right_joint_sensor"
-          }
-        ]
-        endPoint Solid {
-          translation 0.000000 -0.116500 0.040200
-          rotation -1.000000 0.000000 0.000000 1.570796
-          children [
-            HingeJoint {
-              jointParameters HingeJointParameters {
-                axis 0.000000 0.000000 1.000000
-              }
-              device [
-                RotationalMotor {
-                  name "right_wheel_joint"
-                  maxTorque 10000
-                }
-                PositionSensor {
-                  name "right_wheel_joint_sensor"
-                }
-              ]
-              endPoint Solid {
-                children [
-                  Shape {
-                    appearance USE black
-                    geometry Cylinder {
-                      radius 0.035750000000000004
-                      height 0.015
-                    }
-                  }
-                ]
-                name "right_wheel"
-                boundingObject Cylinder {
-                  radius 0.035750000000000004
-                  height 0.015
-                }
-                physics Physics {
-                  density -1
-                  mass 0.200000
-                  centerOfMass [ 0.000000 0.000000 0.000000 ]
-                  inertiaMatrix [
-                    6.765313e-05 6.765313e-05 1.278063e-04
-                    0.000000e+00 0.000000e+00 0.000000e+00
-                  ]
-                }
-              }
-            }
-          ]
-          name "wheel_drop_right"
-          physics Physics {
-            density -1
-            mass 0.050000
-            centerOfMass [ 0.000000 0.000000 0.000000 ]
-            inertiaMatrix [
-              2.083333e-05 2.083333e-05 2.083333e-05
-              0.000000e+00 0.000000e+00 0.000000e+00
-            ]
-          }
-        }
+    }
+
+    BallJoint {
+      jointParameters BallJointParameters {
+        axis 1 0 0
+        anchor 0.125000 0.000000 0.012200
       }
-      Solid {
+      jointParameters2 BallJointParameters {
+        axis 0 1 0
+      }
+      jointParameters3 BallJointParameters {
+        axis 0 0 1
+      }
+      endPoint Solid {
         translation 0.125000 0.000000 0.012200
         rotation -1.000000 0.000000 0.000000 1.570796
         children [
@@ -240,6 +167,29 @@ PROTO Turtlebot4 [
           ]
         }
       }
+    }
+
+      Solid {
+        translation 0.000000 0.000000 0.039200
+        children [
+          DEF bumper_visual_visual CadShape {
+            url "meshes/irobot_create/bumper_visual.dae"
+          }
+        ]
+        name "bump_front_center"
+        boundingObject DEF bumper_collision Mesh {
+          url "meshes/irobot_create/bumper_collision.dae"
+        }
+        physics Physics {
+          density -1
+          mass 0.100000
+          centerOfMass [ 0.080000 0.000000 0.020000 ]
+          inertiaMatrix [
+            1.348375e-03 2.521737e-04 1.544253e-03
+            4.543520e-08 1.443485e-06 -6.721000e-10
+          ]
+        }
+      }
       Solid {
         translation 0.050613 0.043673 0.084400
         name "imu_link"
@@ -257,110 +207,6 @@ PROTO Turtlebot4 [
         translation 0.101500 0.087000 0.009200
         rotation 0.000000 0.000000 -1.000000 0.785398
         name "mouse"
-        physics Physics {
-          density -1
-          mass 0.010000
-          centerOfMass [ 0.000000 0.000000 0.000000 ]
-          inertiaMatrix [
-            1.666667e-07 1.666667e-07 1.666667e-07
-            0.000000e+00 0.000000e+00 0.000000e+00
-          ]
-        }
-      }
-      Solid {
-        translation 0.060000 0.145000 0.019200
-        rotation -0.641175 0.070786 0.764123 2.973271
-        children [
-          Lidar {
-            name "cliff_side_left"
-            fieldOfView 0.087266
-            horizontalResolution 1
-            numberOfLayers 1
-            minRange 0.000100
-            maxRange 0.150000
-            resolution 1.000000
-            near 0.000100
-          }
-        ]
-        name "cliff_side_left"
-        physics Physics {
-          density -1
-          mass 0.010000
-          centerOfMass [ 0.000000 0.000000 0.000000 ]
-          inertiaMatrix [
-            1.666667e-07 1.666667e-07 1.666667e-07
-            0.000000e+00 0.000000e+00 0.000000e+00
-          ]
-        }
-      }
-      Solid {
-        translation 0.060000 -0.145000 0.019200
-        rotation 0.641175 0.070786 -0.764123 2.973271
-        children [
-          Lidar {
-            name "cliff_side_right"
-            fieldOfView 0.087266
-            horizontalResolution 1
-            numberOfLayers 1
-            minRange 0.000100
-            maxRange 0.150000
-            resolution 1.000000
-            near 0.000100
-          }
-        ]
-        name "cliff_side_right"
-        physics Physics {
-          density -1
-          mass 0.010000
-          centerOfMass [ 0.000000 0.000000 0.000000 ]
-          inertiaMatrix [
-            1.666667e-07 1.666667e-07 1.666667e-07
-            0.000000e+00 0.000000e+00 0.000000e+00
-          ]
-        }
-      }
-      Solid {
-        translation 0.160000 0.045000 0.019200
-        rotation -0.453800 0.708225 0.540818 1.739558
-        children [
-          Lidar {
-            name "cliff_front_left"
-            fieldOfView 0.087266
-            horizontalResolution 1
-            numberOfLayers 1
-            minRange 0.000100
-            maxRange 0.150000
-            resolution 1.000000
-            near 0.000100
-          }
-        ]
-        name "cliff_front_left"
-        physics Physics {
-          density -1
-          mass 0.010000
-          centerOfMass [ 0.000000 0.000000 0.000000 ]
-          inertiaMatrix [
-            1.666667e-07 1.666667e-07 1.666667e-07
-            0.000000e+00 0.000000e+00 0.000000e+00
-          ]
-        }
-      }
-      Solid {
-        translation 0.160000 -0.045000 0.019200
-        rotation 0.453800 0.708225 -0.540818 1.739558
-        children [
-          Lidar {
-            name "cliff_front_right"
-            fieldOfView 0.087266
-            horizontalResolution 1
-            numberOfLayers 1
-            minRange 0.000100
-            maxRange 0.150000
-            resolution 1.000000
-            near 0.000100
-          }
-        ]
-        name "cliff_front_right"
         physics Physics {
           density -1
           mass 0.010000
