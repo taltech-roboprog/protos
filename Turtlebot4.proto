@@ -147,13 +147,13 @@ PROTO Turtlebot4 [
           Shape {
             appearance USE black
             geometry Sphere {
-              radius 0.01
+              radius 0.0122
             }
           }
         ]
         name "front_caster_link"
         boundingObject Sphere {
-          radius 0.01
+          radius 0.0122
         }
         physics Physics {
           density -1
