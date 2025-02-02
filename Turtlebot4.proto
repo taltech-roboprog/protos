@@ -62,7 +62,7 @@ PROTO Turtlebot4 [
         }
       ]
       endPoint Solid {
-        translation 0.000000 0.116500 0.040200
+        translation 0.000000 0.116500 0.03575
         rotation -1.000000 0.000000 0.000000 1.570796
         children [
           Shape {
@@ -109,7 +109,7 @@ PROTO Turtlebot4 [
         }
       ]
       endPoint Solid {
-        translation 0.000000 -0.116500 0.040200
+        translation 0.000000 -0.116500 0.03575
         rotation -1.000000 0.000000 0.000000 1.570796
         children [
           Shape {
